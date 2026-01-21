@@ -36,4 +36,21 @@ The design uses a 16-bit signed fixed-point representation to handle fractional 
 | :--- | :--- | :--- | :--- |
 | **+1.0** | $1.0 \times 8192$ | `8192` | `0x2000` |
 | **+90° ($\pi/2$)** | $1.571 \times 8192$ | `12868` | `0x3244` |
-| **+180° ($\pi$)** | $
+| **+180° ($\pi$)** | $3.142 \times 8192$ | `25736` | `0x6488` |
+| **K (Gain)** | $0.607 \times 8192$ | `4975` | `0x136F` |
+
+## 🛠 Simulation & Usage
+The repository includes two testbenches:
+1. `tb_RotationMode.vhd`: Verifies Sin/Cos generation across different angles.
+2. `tb_VectoringMode.vhd`: Verifies Magnitude/Angle calculation (including complex scenarios).
+
+**How to Verify:**
+1. Import source files into Vivado or ModelSim.
+2. Run the behavioral simulation for **500ns**.
+3. **Important:** Divide the integer outputs by **8192.0** to obtain the real floating-point values.
+
+> **Note on Vectoring Mode:** The magnitude output is scaled by the CORDIC gain $K \approx 1.647$. To get the true magnitude, the output must be multiplied by $0.607$ (or processed accordingly).
+
+## 👤 Author
+**Abdullah Ömer Gündoğan**
+Sakarya University - Electrical and Electronics Engineering
