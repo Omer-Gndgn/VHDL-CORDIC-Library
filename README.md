@@ -46,8 +46,7 @@ The repository includes two testbenches:
 
 **How to Verify:**
 1. Import source files into Vivado or ModelSim.
-2. Run the behavioral simulation for **500ns**.
-3. **Important:** Divide the integer outputs by **8192.0** to obtain the real floating-point values.
+2. Run the behavioral simulation.
 
 > **Note on Vectoring Mode:** The magnitude output is scaled by the CORDIC gain $K \approx 1.647$. To get the true magnitude, the output must be multiplied by $0.607$ (or processed accordingly).
 
